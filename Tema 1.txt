@@ -1,0 +1,5 @@
+O clasa "Persoana" cu nume, prenume, anul nasterii, genul, ocupatie.
+Fac o lista de persoane (prima data new list de ceva in Main) si pentru fiecare persoana sa afisez nume, prenume, ocupatie si daca este majora sau nu.
+Sa se afiseze numarul de femei/barbati.
+Media varstelor.
+Sa se afiseze in ordine alfabetica numele persoanelor.
