@@ -2,10 +2,10 @@ package com.company;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 
 
 public class Person {
-    int age;
 
 
     String profession;
@@ -14,23 +14,20 @@ public class Person {
     String lastName;
 
     LocalDate dateOfBirth;
-    LocalDate Present;
 
     //Constructors
 
     public Person(String personFirstName, String personLastName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personGender, String personProfession) {
         this.firstName = personFirstName;
         this.lastName = personLastName;
-        this.Present = LocalDate.now();
         this.dateOfBirth = LocalDate.of(yearOfBirth, monthOfBirth, dayOfBirth);
-        this.age = Period.between(dateOfBirth, Present).getYears();
         this.gender = personGender;
         this.profession = personProfession;
     }
     //Getters
 
     public int getAge() {
-        return this.age;
+        return  Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
 
     public String getProfession() {
@@ -49,17 +46,44 @@ public class Person {
         return lastName;
     }
 
+    public int compareTo(Person other) {
+        int compareInt = this.firstName.compareTo(other.firstName);
+        System.out.println(compareInt);
+        if (compareInt < 0) return -1;
+        if (compareInt > 0) return 1;
+        return 0;
+    }
+
     public void printPersonCharacteristics() {
         System.out.println("Numele complet: " + getFirstName() + " " + getLastName());
         System.out.println("Varsta: " + getAge());
         System.out.println("Gen: " + getGender());
         System.out.println("Profesia: " + getProfession());
-        if(age <18){
-            System.out.println("Persoana este minora!");
-        }else {
-            System.out.println("Persoana este majora!");
+        if (age < 18) {
+            System.out.println("Persoana este minora! \n\n");
+        } else {
+            System.out.println("Persoana este majora! \n\n");
         }
-        System.out.println();
-        System.out.println();
+
+    }
+
+    public int average(ArrayList<Person> personsAge) {
+        int total = 0;
+        for (Person age : personsAge) {
+            total += age.getAge();
+        }
+        return total / personsAge.size();
+    }
+
+    public String MaleFemaleNumbers() {
+        ArrayList<String> men = new ArrayList<>();
+        ArrayList<String> women = new ArrayList<>();
+
+
+            if (getGender().contains("Barbat")) men.add(getLastName());
+            else women.add(getLastName());
+
+
+        return "Numarul barbatilor: " + men.size() + "\n" + "Numarul femeilor: " + women.size();
     }
 }

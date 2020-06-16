@@ -1,8 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+
 
 public class Main {
 
@@ -39,16 +38,19 @@ public class Main {
         goodPeople.add(LupuCristian);
         goodPeople.add(LupuIonut);
 
-            
 
-
-        for (Person people:goodPeople) {
+        for (Person people : goodPeople) {
             people.printPersonCharacteristics();
         }
-
+        for (Person peopleAverageAge: goodPeople) {
+            System.out.println("Varsta medie a persoanelor este: " + peopleAverageAge.average(goodPeople) + " de ani \n");
+            break;
+        }
 
     }
 
-
 }
+
+
+
 
